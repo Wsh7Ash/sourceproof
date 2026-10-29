@@ -1,0 +1,611 @@
+{
+  "name": "sourceproof",
+  "version": "1.0.0",
+  "category": "source-review",
+  "license": "MIT",
+  "runtime": "Claude Code, opencode, or any agent runtime that loads SKILL.md files",
+  "description": "50 validated skills for proving a source-level finding against the tree it came from: the file, the line, the sink, and a call path whose every hop the reviewer can check, with a CLI that does the checking.",
+  "skill_count": 50,
+  "skills": [
+    {
+      "slug": "file-line-anchoring",
+      "title": "File Line Anchoring",
+      "path": "skills/file-line-anchoring/SKILL.md",
+      "tags": [
+        "ground",
+        "anchor",
+        "source"
+      ],
+      "meta_phase": "ground",
+      "sha256": "3be380824caacbcf2e3bce0d8abfd362efe80377bcd95d09ede1ec28aa761c57"
+    },
+    {
+      "slug": "snippet-hash-anchoring",
+      "title": "Snippet Hash Anchoring",
+      "path": "skills/snippet-hash-anchoring/SKILL.md",
+      "tags": [
+        "ground",
+        "anchor",
+        "integrity"
+      ],
+      "meta_phase": "ground",
+      "sha256": "bf23f25b961c69c2d4a11f5f9b5b3ec7c9891101f75a6d54975f2788cdb27b18"
+    },
+    {
+      "slug": "symbol-resolution",
+      "title": "Symbol Resolution",
+      "path": "skills/symbol-resolution/SKILL.md",
+      "tags": [
+        "ground",
+        "symbols",
+        "source"
+      ],
+      "meta_phase": "ground",
+      "sha256": "9de5388df2f6ca39343cf29f8dd69526f10eede8260e90d171e49e42d36b27b3"
+    },
+    {
+      "slug": "definition-boundaries",
+      "title": "Definition Boundaries",
+      "path": "skills/definition-boundaries/SKILL.md",
+      "tags": [
+        "ground",
+        "parsing",
+        "source"
+      ],
+      "meta_phase": "ground",
+      "sha256": "7245caabaac8ff0ff5fab37dd0477fd38568a83b49849b9d022f7d9bf78b34ba"
+    },
+    {
+      "slug": "sink-call-confirmation",
+      "title": "Sink Call Confirmation",
+      "path": "skills/sink-call-confirmation/SKILL.md",
+      "tags": [
+        "ground",
+        "sink",
+        "verification"
+      ],
+      "meta_phase": "ground",
+      "sha256": "bc408191edda4c3af5796410b2865421a1d7829cdbb6b6be760512894c9aa391"
+    },
+    {
+      "slug": "entry-point-identification",
+      "title": "Entry Point Identification",
+      "path": "skills/entry-point-identification/SKILL.md",
+      "tags": [
+        "ground",
+        "entry",
+        "reachability"
+      ],
+      "meta_phase": "ground",
+      "sha256": "56f6e024b6b5aae5afdab344c78fd2a6c1b57d6e216043513ecc3d9ace76381b"
+    },
+    {
+      "slug": "build-variant-awareness",
+      "title": "Build Variant Awareness",
+      "path": "skills/build-variant-awareness/SKILL.md",
+      "tags": [
+        "ground",
+        "build",
+        "scope"
+      ],
+      "meta_phase": "ground",
+      "sha256": "4d313ad3ed29d2f8158c68a78cb22ec34a28165d366cccc84dac9bfd8dec754f"
+    },
+    {
+      "slug": "unsupported-language-honesty",
+      "title": "Unsupported Language Honesty",
+      "path": "skills/unsupported-language-honesty/SKILL.md",
+      "tags": [
+        "ground",
+        "limits",
+        "process"
+      ],
+      "meta_phase": "ground",
+      "sha256": "063fb4246eda93e82feaad23ff8e07372106f84d017fff8398e7a69279fab6a2"
+    },
+    {
+      "slug": "call-edge-verification",
+      "title": "Call Edge Verification",
+      "path": "skills/call-edge-verification/SKILL.md",
+      "tags": [
+        "graph",
+        "path",
+        "verification"
+      ],
+      "meta_phase": "graph",
+      "sha256": "6e0e0e45acfffb62fe6d15d5a5dada2fc8be1ee932ed224ce170091adad0757b"
+    },
+    {
+      "slug": "broken-hop-handling",
+      "title": "Broken Hop Handling",
+      "path": "skills/broken-hop-handling/SKILL.md",
+      "tags": [
+        "graph",
+        "path",
+        "triage"
+      ],
+      "meta_phase": "graph",
+      "sha256": "8b6d2e8a0991efca595cd077b0871a5e0dfa163763fe6268da7738dd848b9771"
+    },
+    {
+      "slug": "dynamic-dispatch-limits",
+      "title": "Dynamic Dispatch Limits",
+      "path": "skills/dynamic-dispatch-limits/SKILL.md",
+      "tags": [
+        "graph",
+        "dynamic",
+        "limits"
+      ],
+      "meta_phase": "graph",
+      "sha256": "f36e6b7cacce24d2679575c35a1e9d43b2be1d3f5c1fffbccfd0b3149f67feb5"
+    },
+    {
+      "slug": "callback-and-handler-registration",
+      "title": "Callback and Handler Registration",
+      "path": "skills/callback-and-handler-registration/SKILL.md",
+      "tags": [
+        "graph",
+        "callback",
+        "framework"
+      ],
+      "meta_phase": "graph",
+      "sha256": "3a8fb734a01a3ac16532455e5108f91574bc77cc2db70a6441ce3eb92d243ff0"
+    },
+    {
+      "slug": "recursion-and-cycle-handling",
+      "title": "Recursion and Cycle Handling",
+      "path": "skills/recursion-and-cycle-handling/SKILL.md",
+      "tags": [
+        "graph",
+        "recursion",
+        "search"
+      ],
+      "meta_phase": "graph",
+      "sha256": "35a62023da6d7aaaca25d2b679f629bfebee8a0a17a700aeb75ddb2315554b28"
+    },
+    {
+      "slug": "wrapper-and-thunk-collapse",
+      "title": "Wrapper and Thunk Collapse",
+      "path": "skills/wrapper-and-thunk-collapse/SKILL.md",
+      "tags": [
+        "graph",
+        "path",
+        "wrappers"
+      ],
+      "meta_phase": "graph",
+      "sha256": "7c380055a31889579defab41fa69f24b6d9fac39fb5338e4fb6bb69983d93d0a"
+    },
+    {
+      "slug": "path-minimality",
+      "title": "Path Minimality",
+      "path": "skills/path-minimality/SKILL.md",
+      "tags": [
+        "graph",
+        "path",
+        "reporting"
+      ],
+      "meta_phase": "graph",
+      "sha256": "54093b52389af7d3c8511b9d401662ee9d6909e0faebff7ca0b5ab3a4f68b402"
+    },
+    {
+      "slug": "cross-file-resolution",
+      "title": "Cross File Resolution",
+      "path": "skills/cross-file-resolution/SKILL.md",
+      "tags": [
+        "graph",
+        "resolution",
+        "source"
+      ],
+      "meta_phase": "graph",
+      "sha256": "f5d7aa6b6cb7d2ec1e5739ecc64c1ae070be8884a8e328e00f9f972bf6dda36b"
+    },
+    {
+      "slug": "reachability-versus-exposure",
+      "title": "Reachability Versus Exposure",
+      "path": "skills/reachability-versus-exposure/SKILL.md",
+      "tags": [
+        "graph",
+        "exposure",
+        "severity"
+      ],
+      "meta_phase": "graph",
+      "sha256": "088e052e43f1d4cf7a230bbd634f8d397f8d5fd5f01741d2fe30c70b1b30a1f3"
+    },
+    {
+      "slug": "sink-catalogue-scoping",
+      "title": "Sink Catalogue Scoping",
+      "path": "skills/sink-catalogue-scoping/SKILL.md",
+      "tags": [
+        "sink",
+        "catalogue",
+        "scope"
+      ],
+      "meta_phase": "sink",
+      "sha256": "93ce7479138db6e8fddaff9e4345559c06bed19d30178c9e6e41d97632adad87"
+    },
+    {
+      "slug": "unbounded-copy-sinks",
+      "title": "Unbounded Copy Sinks",
+      "path": "skills/unbounded-copy-sinks/SKILL.md",
+      "tags": [
+        "sink",
+        "memory",
+        "copy"
+      ],
+      "meta_phase": "sink",
+      "sha256": "12ef01ce0ca7202719f77ccb3c3faa24c3a246282e78cf4dbb000884df90022b"
+    },
+    {
+      "slug": "command-execution-sinks",
+      "title": "Command Execution Sinks",
+      "path": "skills/command-execution-sinks/SKILL.md",
+      "tags": [
+        "sink",
+        "command",
+        "injection"
+      ],
+      "meta_phase": "sink",
+      "sha256": "75f0bbfd51a8b832a2911fbcec3e424773c86cd36aa2102015317246e306316c"
+    },
+    {
+      "slug": "sql-execution-sinks",
+      "title": "SQL Execution Sinks",
+      "path": "skills/sql-execution-sinks/SKILL.md",
+      "tags": [
+        "sink",
+        "sql",
+        "injection"
+      ],
+      "meta_phase": "sink",
+      "sha256": "c03c515163e14dea06cd525c6f0f3c590e7cafef60421c239710c4a1e2b09a80"
+    },
+    {
+      "slug": "path-traversal-sinks",
+      "title": "Path Traversal Sinks",
+      "path": "skills/path-traversal-sinks/SKILL.md",
+      "tags": [
+        "sink",
+        "path",
+        "filesystem"
+      ],
+      "meta_phase": "sink",
+      "sha256": "d35b92bc3dc5cded67c4257398edba5e59d4f61767315e44072008abc4345e03"
+    },
+    {
+      "slug": "deserialization-sinks",
+      "title": "Deserialization Sinks",
+      "path": "skills/deserialization-sinks/SKILL.md",
+      "tags": [
+        "sink",
+        "deserialization",
+        "parser"
+      ],
+      "meta_phase": "sink",
+      "sha256": "0c8713f05c2f39838f948bf8db0a5a142683f4c0552ab0dfb6d0ce719a3ce593"
+    },
+    {
+      "slug": "format-string-sinks",
+      "title": "Format String Sinks",
+      "path": "skills/format-string-sinks/SKILL.md",
+      "tags": [
+        "sink",
+        "format",
+        "memory"
+      ],
+      "meta_phase": "sink",
+      "sha256": "64e4d6c29c1dddc0e4a79dc129d69a30b70de1ed8d0ca36d0982d6b60f90282d"
+    },
+    {
+      "slug": "dynamic-code-sinks",
+      "title": "Dynamic Code Sinks",
+      "path": "skills/dynamic-code-sinks/SKILL.md",
+      "tags": [
+        "sink",
+        "eval",
+        "code"
+      ],
+      "meta_phase": "sink",
+      "sha256": "51eabcfee573a67fae406819cd4697b16fc3cc0f06c3df366d63e6356edb7357"
+    },
+    {
+      "slug": "sanitizer-recognition",
+      "title": "Sanitizer Recognition",
+      "path": "skills/sanitizer-recognition/SKILL.md",
+      "tags": [
+        "sink",
+        "sanitizer",
+        "context"
+      ],
+      "meta_phase": "sink",
+      "sha256": "e8a58dcba0f51496294d426dff1125676067ec17c135e6c2025dcf89d181520c"
+    },
+    {
+      "slug": "drift-detection",
+      "title": "Drift Detection",
+      "path": "skills/drift-detection/SKILL.md",
+      "tags": [
+        "locate",
+        "drift",
+        "verification"
+      ],
+      "meta_phase": "locate",
+      "sha256": "d464ae0ae4bc2bdc90c763a49d1d0fc45798426cab5db9861de73cb222676600"
+    },
+    {
+      "slug": "snippet-reanchoring",
+      "title": "Snippet Reanchoring",
+      "path": "skills/snippet-reanchoring/SKILL.md",
+      "tags": [
+        "locate",
+        "anchor",
+        "drift"
+      ],
+      "meta_phase": "locate",
+      "sha256": "36295a7dbb18407f4b075a2a7af9ac932232b40a3cb425c6900f9de3ad1310e5"
+    },
+    {
+      "slug": "duplicate-snippet-disambiguation",
+      "title": "Duplicate Snippet Disambiguation",
+      "path": "skills/duplicate-snippet-disambiguation/SKILL.md",
+      "tags": [
+        "locate",
+        "dedupe",
+        "anchor"
+      ],
+      "meta_phase": "locate",
+      "sha256": "1a186b1983bdcfbefab98faf92ac3995fcf2ad40f55a7e2aca29e662c8521f9b"
+    },
+    {
+      "slug": "rename-tracking",
+      "title": "Rename Tracking",
+      "path": "skills/rename-tracking/SKILL.md",
+      "tags": [
+        "locate",
+        "rename",
+        "history"
+      ],
+      "meta_phase": "locate",
+      "sha256": "588d24f59dfbc33bcb4158592c5aeccf6e5d1c93dd25831e8f7a1d0c205b5a75"
+    },
+    {
+      "slug": "moved-function-tracking",
+      "title": "Moved Function Tracking",
+      "path": "skills/moved-function-tracking/SKILL.md",
+      "tags": [
+        "locate",
+        "move",
+        "source"
+      ],
+      "meta_phase": "locate",
+      "sha256": "4990241d7a8202212eac944d4187dbc83c23d28552a582e9fb70baad774e9135"
+    },
+    {
+      "slug": "deleted-code-handling",
+      "title": "Deleted Code Handling",
+      "path": "skills/deleted-code-handling/SKILL.md",
+      "tags": [
+        "locate",
+        "retirement",
+        "fix"
+      ],
+      "meta_phase": "locate",
+      "sha256": "42abd0148d4d02a8e9fc2b1a4793a7ddfc8355fdff52a718cd1336e1663db618"
+    },
+    {
+      "slug": "line-range-validation",
+      "title": "Line Range Validation",
+      "path": "skills/line-range-validation/SKILL.md",
+      "tags": [
+        "locate",
+        "validation",
+        "anchor"
+      ],
+      "meta_phase": "locate",
+      "sha256": "594adf1dda88fa9a2a48b171bcf7fc13250f83ad28c725e53e00e3ce7ed2fc87"
+    },
+    {
+      "slug": "branch-divergence",
+      "title": "Branch Divergence",
+      "path": "skills/branch-divergence/SKILL.md",
+      "tags": [
+        "locate",
+        "branches",
+        "scope"
+      ],
+      "meta_phase": "locate",
+      "sha256": "eba233517d418cc9c8fcbb299965fc33fcd7b100f2d2564b4e2012aaa42c05ef"
+    },
+    {
+      "slug": "blocking-versus-advisory",
+      "title": "Blocking Versus Advisory",
+      "path": "skills/blocking-versus-advisory/SKILL.md",
+      "tags": [
+        "grade",
+        "rules",
+        "process"
+      ],
+      "meta_phase": "grade",
+      "sha256": "04aa7b910f74fcb3d25ae995b70fc3a333ecc47805dc9a30072004202a780395"
+    },
+    {
+      "slug": "impact-statement",
+      "title": "Impact Statement",
+      "path": "skills/impact-statement/SKILL.md",
+      "tags": [
+        "grade",
+        "impact",
+        "reporting"
+      ],
+      "meta_phase": "grade",
+      "sha256": "5cdf73c1b610373295a72ea0480e1931e04302446c55857f0c7948044ea4c961"
+    },
+    {
+      "slug": "severity-from-evidence",
+      "title": "Severity From Evidence",
+      "path": "skills/severity-from-evidence/SKILL.md",
+      "tags": [
+        "grade",
+        "severity",
+        "evidence"
+      ],
+      "meta_phase": "grade",
+      "sha256": "00ea2ea1c63a1339e739391549e6eed7ebefce09795af7af5af18788a9ce98e2"
+    },
+    {
+      "slug": "false-positive-review",
+      "title": "False Positive Review",
+      "path": "skills/false-positive-review/SKILL.md",
+      "tags": [
+        "grade",
+        "review",
+        "quality"
+      ],
+      "meta_phase": "grade",
+      "sha256": "214413402cc4d63925ffbc52f18d69a55734e83116e6c04f9955513b1492a5f7"
+    },
+    {
+      "slug": "guard-verification",
+      "title": "Guard Verification",
+      "path": "skills/guard-verification/SKILL.md",
+      "tags": [
+        "grade",
+        "guards",
+        "control-flow"
+      ],
+      "meta_phase": "grade",
+      "sha256": "67b9ac660caf4200f468d27b4a7a7a9a642abeca5b2fb2d462544eb182c53ea8"
+    },
+    {
+      "slug": "dedupe-by-anchor",
+      "title": "Dedupe by Anchor",
+      "path": "skills/dedupe-by-anchor/SKILL.md",
+      "tags": [
+        "grade",
+        "dedupe",
+        "ledger"
+      ],
+      "meta_phase": "grade",
+      "sha256": "aa505b23a7a5405b4eea1e7a9cbefc36403a768d764da0ee3555da3517fa2855"
+    },
+    {
+      "slug": "evidence-bundle",
+      "title": "Evidence Bundle",
+      "path": "skills/evidence-bundle/SKILL.md",
+      "tags": [
+        "grade",
+        "evidence",
+        "bundle"
+      ],
+      "meta_phase": "grade",
+      "sha256": "fecd8764052afbd8170cebce842b274fedb6b20bcc2bc09d91885d2c7a93890b"
+    },
+    {
+      "slug": "verification-record",
+      "title": "Verification Record",
+      "path": "skills/verification-record/SKILL.md",
+      "tags": [
+        "grade",
+        "record",
+        "process"
+      ],
+      "meta_phase": "grade",
+      "sha256": "826ef928ae316784fc98fd0615305a9bce09272713a61cb80e7d25700346e74d"
+    },
+    {
+      "slug": "ledger-format",
+      "title": "Ledger Format",
+      "path": "skills/ledger-format/SKILL.md",
+      "tags": [
+        "ledger",
+        "format",
+        "process"
+      ],
+      "meta_phase": "ledger",
+      "sha256": "7f665d3388cc276d8f6b85f1fcd2b275cd1b95d2a8b1d83023cbdbee6a1dafc5"
+    },
+    {
+      "slug": "anchor-identity",
+      "title": "Anchor Identity",
+      "path": "skills/anchor-identity/SKILL.md",
+      "tags": [
+        "ledger",
+        "identity",
+        "dedupe"
+      ],
+      "meta_phase": "ledger",
+      "sha256": "0f869d19de5c7c05cc4d71a8d0a579c0c3148f2912af3d84ba26ba3b919bb156"
+    },
+    {
+      "slug": "duplicate-claim-detection",
+      "title": "Duplicate Claim Detection",
+      "path": "skills/duplicate-claim-detection/SKILL.md",
+      "tags": [
+        "ledger",
+        "dedupe",
+        "quality"
+      ],
+      "meta_phase": "ledger",
+      "sha256": "680b523d5aadd2556877e99f4c0082bc19b380e4eb5e2d412be3c2984c3ceab7"
+    },
+    {
+      "slug": "reverification-cadence",
+      "title": "Reverification Cadence",
+      "path": "skills/reverification-cadence/SKILL.md",
+      "tags": [
+        "ledger",
+        "cadence",
+        "process"
+      ],
+      "meta_phase": "ledger",
+      "sha256": "3aa57a69f056ee5f5baba1cf1e5419a62bdf3f678806d7bc40502d232c6770bb"
+    },
+    {
+      "slug": "branch-pinning",
+      "title": "Branch Pinning",
+      "path": "skills/branch-pinning/SKILL.md",
+      "tags": [
+        "ledger",
+        "revision",
+        "scope"
+      ],
+      "meta_phase": "ledger",
+      "sha256": "6bc0b3b7bc4f7eb3af13b42b1443054934015996bd236aa7f3c818c4d65bc15f"
+    },
+    {
+      "slug": "claim-retirement",
+      "title": "Claim Retirement",
+      "path": "skills/claim-retirement/SKILL.md",
+      "tags": [
+        "ledger",
+        "retirement",
+        "process"
+      ],
+      "meta_phase": "ledger",
+      "sha256": "ddf1b74920e00a03e3defd060b3db902ff69ff531946998274c99d932562c3e9"
+    },
+    {
+      "slug": "disclosure-mapping",
+      "title": "Disclosure Mapping",
+      "path": "skills/disclosure-mapping/SKILL.md",
+      "tags": [
+        "ledger",
+        "disclosure",
+        "process"
+      ],
+      "meta_phase": "ledger",
+      "sha256": "3e0cafd7668b9b1f9a3a11368d4e95d99343488df4d8360392be4c96db317043"
+    },
+    {
+      "slug": "review-handoff",
+      "title": "Review Handoff",
+      "path": "skills/review-handoff/SKILL.md",
+      "tags": [
+        "ledger",
+        "handoff",
+        "process"
+      ],
+      "meta_phase": "ledger",
+      "sha256": "f84a6bf98f6a85edc03a2cc7afb4a1f015175fe806dc72acae89dc8520549a18"
+    }
+  ]
+}

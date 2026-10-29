@@ -1,0 +1,1 @@
+workspace/app/api.py:12:     cur.execute("INSERT INTO files (name) VALUES ('%s')" % name)

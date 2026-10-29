@@ -1,0 +1,31 @@
+$ sourceproof validate
+sourceproof: 50/50 skills valid
+  ok  steps>=6 signals>=4 patterns>=3 pitfalls>=3 words>=180 refs canonical https
+
+$ sourceproof scan examples --sinks
+sql-exec         workspace/app/api.py:12    execute                  in store_file
+unbounded-copy   workspace/src/parse.c:10    memcpy                   in copy_field
+# 2 sink(s) in 5 file(s)
+
+$ sourceproof path handle_request memcpy --root examples
+   handle_request  workspace/src/server.c:26 (calls on line 33)
+-> dispatch_route  workspace/src/server.c:18 (calls on line 21)
+-> parse_headers  workspace/src/parse.c:14 (calls on line 26)
+-> copy_field  workspace/src/parse.c:8 (calls on line 10)
+# 4 hop(s), verified against the tree
+
+$ sourceproof path route_upload execute --root examples
+   route_upload  workspace/app/api.py:4 (calls on line 6)
+-> store_file  workspace/app/api.py:9 (calls on line 12)
+# 2 hop(s), verified against the tree
+
+$ sourceproof check examples/claim.json --root examples
+SP-001: grade A (100/100) verified
+  anchor b691b72bf431c683
+exit=0
+
+$ sourceproof verify examples/ledger.jsonl --root examples
+ok   SP-001       A 100  Unbounded memcpy in copy_field reached from the upload request handler
+ok   SP-002       A 100  SQL injection in store_file via the upload name parameter
+# 2/2 claim(s) verified against examples
+exit=0

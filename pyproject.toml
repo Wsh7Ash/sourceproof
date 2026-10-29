@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sourceproof"
+version = "1.0.0"
+description = "Verify source-level findings against a real source tree: file, line, sink, and a call path that exists, plus 50 validated skills."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Wsh7Ash" }]
+keywords = ["bug-bounty", "source-review", "sast", "triage", "call-graph", "skills"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+sourceproof = "sourceproof.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

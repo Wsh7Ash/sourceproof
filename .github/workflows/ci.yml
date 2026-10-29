@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+
+      - name: Validate corpus (the 50/50 gate)
+        run: sourceproof validate
+
+      - name: Unit tests
+        run: python -m pytest -q
+
+      - name: Claims in the example ledger still verify
+        run: |
+          sourceproof verify examples/ledger.jsonl --root examples/tree
+          sourceproof check examples/claim.json --root examples/tree
+
+      - name: Committed artifacts are in sync
+        run: |
+          sourceproof build
+          git diff --exit-code -- skills pack.json results
